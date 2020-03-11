@@ -11,6 +11,7 @@ namespace WAnoHTTPS.ViewModels
         [Required(ErrorMessage = "خطا: وارد کردن آدرس ایمیل ضروری است")]
         public string emailaddress_viewmodel { get; set; }
 
+        [Required(ErrorMessage ="خطا: پسوورد باید شامل عدد و حروف باشد و حداقل 6 کاراکتر داشته باشد")]
         public string password_viewmodel { get; set; }
         [Compare("password_viewmodel", ErrorMessage = "هر دو پسوورد وارد شده باید کاملا یکسان باشند")]
         public string repassword_viewmodel { get; set; }

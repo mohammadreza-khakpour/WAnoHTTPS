@@ -22,6 +22,16 @@ namespace WAnoHTTPS.Areas.Identity
 
                 services.AddDefaultIdentity<WAnoHTTPSUser>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddEntityFrameworkStores<WAnoHTTPSContext>();
+                services.Configure<IdentityOptions>(x => 
+                {
+                    x.Password.RequireNonAlphanumeric = false;
+                    x.Password.RequireUppercase = false;
+                    x.Password.RequiredLength = 6;
+
+                    x.Lockout.MaxFailedAccessAttempts = 3;
+                    x.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(3);
+                });
+
             });
         }
     }

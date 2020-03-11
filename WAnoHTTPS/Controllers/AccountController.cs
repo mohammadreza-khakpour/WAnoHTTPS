@@ -49,7 +49,7 @@ namespace WAnoHTTPS.Controllers
             if (registeringStatus.Succeeded)
             {
                 string newUser_token = await EalfaTestUserManager.GenerateEmailConfirmationTokenAsync(newUser);
-                string href = Url.Action("EmailConfirm", "Account", new { newuserid = newUser.Id, newusertoken = newUser_token });
+                string href = Url.Action("EmailConfirm", "Account", new { newuserid = newUser.Id, newusertoken = newUser_token }, "http");
                 string body =
                     $"Hello {newUser.UserName}<br/>" +
                     $"to confirm your account click on: <a href={href}>here</a> .<br/>" +
